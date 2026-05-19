@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <!-- スマホで拡大縮小しないように設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ジャグラー集計</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== -->
+  <!-- ログイン画面         -->
+  <!-- ==================== -->
+  <div id="screen-login">
+    <div class="login-card">
+      <h1>ジャグラー集計</h1>
+      <p class="login-desc">パスワードを入力してください</p>
+
+      <!-- パスワード入力欄（数字キーボードで入力） -->
+      <input
+        id="pw-input"
+        type="password"
+        inputmode="numeric"
+        maxlength="6"
+        placeholder="000000"
+        autocomplete="off"
+      >
+
+      <button id="btn-login">ログイン</button>
+
+      <!-- エラーメッセージ（間違えたとき表示） -->
+      <p id="pw-error" class="error-text"></p>
+    </div>
+  </div>
+
+
+  <!-- ==================== -->
+  <!-- メイン画面           -->
+  <!-- ==================== -->
+  <div id="screen-main">
+
+    <!-- ヘッダー（上部固定） -->
+    <header>
+      <span class="header-title">ジャグラー集計</span>
+      <button id="btn-logout" class="btn-sub">ログアウト</button>
+    </header>
+
+    <!-- データ入力テーブル -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>台番</th>
+            <th>通常G</th>
+            <th>合成</th>
+            <th>BB</th>
+            <th>RB</th>
+            <th></th>
+          </tr>
+        </thead>
+        <!-- 行はJavaScriptで自動生成 -->
+        <tbody id="tbl-body"></tbody>
+      </table>
+    </div>
+
+    <!-- 操作ボタン -->
+    <div class="btn-row">
+      <button id="btn-add" class="btn-primary">行追加</button>
+      <button id="btn-clear" class="btn-danger">全削除</button>
+    </div>
+
+    <!-- 集計結果エリア -->
+    <section class="summary">
+      <h2 class="summary-ttl">集計結果</h2>
+      <div class="s-grid">
+
+        <!-- 1行目：カウント -->
+        <div class="s-card">
+          <span class="s-label">通常G合計</span>
+          <span class="s-val" id="sum-g">-</span>
+        </div>
+        <div class="s-card">
+          <span class="s-label">BB合計</span>
+          <span class="s-val" id="sum-bb">-</span>
+        </div>
+        <div class="s-card">
+          <span class="s-label">RB合計</span>
+          <span class="s-val" id="sum-rb">-</span>
+        </div>
+
+        <!-- 2行目：確率 -->
+        <div class="s-card">
+          <span class="s-label">BB確率</span>
+          <span class="s-val" id="prob-bb">-</span>
+        </div>
+        <div class="s-card">
+          <span class="s-label">RB確率</span>
+          <span class="s-val" id="prob-rb">-</span>
+        </div>
+        <!-- 合算確率は強調表示 -->
+        <div class="s-card s-hi">
+          <span class="s-label">合算確率</span>
+          <span class="s-val" id="prob-all">-</span>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /screen-main -->
+
+  <script src="script.js"></script>
+</body>
+</html>

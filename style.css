@@ -1,0 +1,352 @@
+/* ==========================================
+   リセット・基本設定
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+  background: #eef0f5;
+  color: #1a1a2e;
+  min-height: 100vh;
+  font-size: 14px;
+}
+
+/* ==========================================
+   ログイン画面
+   ========================================== */
+#screen-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px 16px;
+  background: linear-gradient(160deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+}
+
+/* ログインカード */
+.login-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 28px 32px;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+.login-card h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.login-desc {
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 28px;
+}
+
+/* パスワード入力欄 */
+#pw-input {
+  display: block;
+  width: 100%;
+  padding: 14px 12px;
+  font-size: 22px;
+  text-align: center;
+  letter-spacing: 10px;
+  border: 2px solid #dde1ea;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #f9fafc;
+}
+
+#pw-input:focus {
+  border-color: #4361ee;
+  background: #fff;
+}
+
+/* ログインボタン */
+#btn-login {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: #4361ee;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#btn-login:active {
+  background: #2f4cc5;
+}
+
+/* エラーメッセージ */
+.error-text {
+  color: #e74c3c;
+  font-size: 13px;
+  min-height: 20px;
+  margin-top: 12px;
+}
+
+/* ==========================================
+   メイン画面
+   ========================================== */
+#screen-main {
+  display: none; /* JavaScriptでflexに変更 */
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ヘッダー */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #1a1a2e;
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* ログアウトボタン */
+.btn-sub {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-sub:active {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ==========================================
+   テーブル
+   ========================================== */
+.table-wrap {
+  overflow-x: auto; /* 横スクロール対応 */
+  padding: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* テーブルヘッダー */
+thead {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+thead th {
+  padding: 9px 2px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* テーブル本体 */
+tbody tr:nth-child(even) {
+  background: #f4f6ff;
+}
+
+tbody tr:nth-child(odd) {
+  background: #fff;
+}
+
+tbody td {
+  padding: 2px 1px;
+  border-bottom: 1px solid #e8eaf0;
+}
+
+/* 列幅（スマホ向けに調整） */
+th:nth-child(1), td:nth-child(1) { width: 17%; } /* 台番 */
+th:nth-child(2), td:nth-child(2) { width: 22%; } /* 通常G */
+th:nth-child(3), td:nth-child(3) { width: 20%; } /* 合成 */
+th:nth-child(4), td:nth-child(4) { width: 15%; } /* BB */
+th:nth-child(5), td:nth-child(5) { width: 15%; } /* RB */
+th:nth-child(6), td:nth-child(6) { width: 11%; } /* 削除 */
+
+/* ==========================================
+   入力欄
+   ========================================== */
+.f {
+  display: block;
+  width: 100%;
+  padding: 11px 3px;
+  font-size: 15px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  outline: none;
+  min-height: 44px; /* タッチ操作の最小推奨サイズ */
+  color: #1a1a2e;
+  -webkit-appearance: none;
+}
+
+.f:focus {
+  background: #dce8ff;
+  border-radius: 4px;
+}
+
+/* 自動計算された通常Gのプレースホルダー（青みがかった文字） */
+.f-auto::placeholder {
+  color: #5b8def;
+  font-style: italic;
+  font-size: 11px;
+}
+
+/* 通常のプレースホルダー */
+.f::placeholder {
+  color: #c0c4cc;
+  font-size: 12px;
+}
+
+/* 削除ボタン */
+.btn-del {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-del:active {
+  color: #e74c3c;
+}
+
+/* ==========================================
+   操作ボタン行
+   ========================================== */
+.btn-row {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+}
+
+.btn-row button {
+  flex: 1;
+  padding: 13px 8px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primary {
+  background: #4361ee;
+  color: #fff;
+}
+
+.btn-primary:active {
+  background: #2f4cc5;
+}
+
+.btn-danger {
+  background: #fee2e2;
+  color: #c0392b;
+}
+
+.btn-danger:active {
+  background: #fecaca;
+}
+
+/* ==========================================
+   集計結果エリア
+   ========================================== */
+.summary {
+  margin: 0 8px 16px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 12px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.summary-ttl {
+  font-size: 11px;
+  color: #aaa;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+/* 3列グリッド */
+.s-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.s-card {
+  background: #f4f6ff;
+  border-radius: 8px;
+  padding: 10px 6px;
+  text-align: center;
+}
+
+/* 合算確率（強調） */
+.s-hi {
+  background: #1a1a2e;
+}
+
+.s-label {
+  display: block;
+  font-size: 10px;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.s-hi .s-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.s-val {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: 0.02em;
+}
+
+.s-hi .s-val {
+  color: #fff;
+  font-size: 17px;
+}
